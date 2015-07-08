@@ -1,11 +1,10 @@
 # Code-Mirror
-Polymer element wrapping [CodeMirror](codemirror.net)
+Polymer element wrapping [CodeMirror](http://codemirror.net)
 
 ## What is this?
 Code-Mirror is a Web Component made with [Polymer](https://www.polymer-project.org/) that wraps a default text-area with CodeMirror's highlight syntax, plugins and options.
 
 ## Installation and usage
-**Warning:** This repository is not on Bower not npm (yet). The commands below will not work (for now).
 
 #### Install with npm:
 `npm i --save polymer-code-mirror`
