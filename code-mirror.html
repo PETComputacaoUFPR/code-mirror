@@ -1,0 +1,121 @@
+<link rel="import" href="../polymer/polymer.html">
+<script src="../codemirror/lib/codemirror.js"></script>
+<script src="../codemirror/mode/python/python.js"></script>
+<script src="../codemirror/mode/ruby/ruby.js"></script>
+<script src="../codemirror/mode/php/php.js"></script>
+<script src="../codemirror/mode/pascal/pascal.js"></script>
+<script src="../codemirror/mode/sql/sql.js"></script>
+<script src="../codemirror/mode/clike/clike.js"></script>
+<script src="../codemirror/mode/xml/xml.js"></script>
+<script src="../codemirror/mode/javascript/javascript.js"></script>
+<script src="../codemirror/mode/css/css.js"></script>
+<script src="../codemirror/mode/vbscript/vbscript.js"></script>
+<script src="../codemirror/mode/htmlmixed/htmlmixed.js"></script>
+<script src="../codemirror/addon/fold/foldcode.js"></script>
+<script src="../codemirror/addon/fold/foldgutter.js"></script>
+<script src="../codemirror/addon/fold/brace-fold.js"></script>
+<script src="../codemirror/addon/fold/xml-fold.js"></script>
+<script src="../codemirror/addon/fold/markdown-fold.js"></script>
+<script src="../codemirror/addon/fold/comment-fold.js"></script>
+<script src="../codemirror/addon/search/searchcursor.js"></script>
+
+
+<dom-module id="code-mirror">
+    <style>
+    #content {
+        display: none;
+    }
+    </style>
+
+    <template>
+        <link href="../codemirror/lib/codemirror.css" rel="stylesheet" >
+        <link href="../codemirror/theme/ambiance.css" rel="stylesheet">
+        <link href="../codemirror/theme/ambiance-mobile.css" rel="stylesheet">
+        <link href="../codemirror/theme/blackboard.css" rel="stylesheet">
+        <link href="../codemirror/theme/cobalt.css" rel="stylesheet">
+        <link href="../codemirror/theme/eclipse.css" rel="stylesheet">
+        <link href="../codemirror/theme/elegant.css" rel="stylesheet">
+        <link href="../codemirror/theme/erlang-dark.css" rel="stylesheet">
+        <link href="../codemirror/theme/lesser-dark.css" rel="stylesheet">
+        <link href="../codemirror/theme/midnight.css" rel="stylesheet">
+        <link href="../codemirror/theme/monokai.css" rel="stylesheet">
+        <link href="../codemirror/theme/neat.css" rel="stylesheet">
+        <link href="../codemirror/theme/night.css" rel="stylesheet">
+        <link href="../codemirror/theme/rubyblue.css" rel="stylesheet">
+        <link href="../codemirror/theme/solarized.css" rel="stylesheet">
+        <link href="../codemirror/theme/twilight.css" rel="stylesheet">
+        <link href="../codemirror/theme/vibrant-ink.css" rel="stylesheet">
+        <link href="../codemirror/theme/xq-dark.css" rel="stylesheet">
+        <link href="../codemirror/theme/xq-light.css" rel="stylesheet">
+        <link href="../codemirror/addon/fold/foldgutter.css" rel="stylesheet">
+        <div id="wrapper"></div>
+        <div id="content">
+            <content></content>
+        </div>
+    </template>
+
+    <script>
+
+        Polymer({
+            is: 'code-mirror',
+
+            properties: {
+                value: {
+                    type: String,
+                    value: null
+                },
+                tabSize: {
+                    type: Number,
+                    value: 2
+                },
+                mode: {
+                    type: String,
+                    value: 'htmlmixed'
+                },
+                theme: {
+                    type:String,
+                    value: 'monokai'
+                },
+                lineNumbers: {
+                    type: Boolean,
+                    value: true
+                },
+                rows: {
+                    type: Number,
+                    value: 25
+                },
+                cols: {
+                    type:Number,
+                    value: 85
+                }
+            },
+
+            // Element Lifecycle
+
+            ready: function() {
+                console.log(this.textContent);
+                if(!this.value) {
+                    this.value = this.textContent.trim();
+                }
+                this.mirror = CodeMirror(this.$.wrapper, {
+                    value: this.value,
+                    mode: this.mode,
+                    theme: this.theme,
+                    lineNumbers: this.lineNumbers,
+                    tabSize: this.tabSize
+                });
+            },
+
+            attached: function() {
+                this.mirror.refresh();
+                this.focus();
+            },
+
+            focus: function() {
+                this.mirror.focus();
+            }
+
+        });
+
+    </script>
+</dom-module>
