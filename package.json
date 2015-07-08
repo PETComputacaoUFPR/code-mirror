@@ -1,18 +1,23 @@
 {
-  "name": "code-mirror",
-  "version": "0.0.0",
-  "description": "Skulpt console web component",
-  "main": "skulpt-console.html",
+  "name": "polymer-code-mirror",
+  "version": "0.1.0",
+  "description": "CodeMirror web component made with Polymer",
+  "main": "code-mirror.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "skulpt",
+    "code-mirror",
+    "code",
+    "mirror",
     "polymer",
     "pet",
     "computação",
     "ufpr"
   ],
   "author": "PET Computação UFPR <pet@inf.ufpr.br> (http://pet.inf.ufpr.br)",
+  "contributors":[
+      "Vytor Calixto <vytorcalixto@gmail.com> (https://gihtub.com/VytorCalixto)"
+  ],
   "license": "MIT"
 }

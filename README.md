@@ -1,56 +1,56 @@
-# seed-element
+# Code-Mirror
+Polymer element wrapping [CodeMirror](codemirror.net)
 
-An element providing a starting point for your own reusable Polymer elements.
+## What is this?
+Code-Mirror is a Web Component made with [Polymer](https://www.polymer-project.org/) that wraps a default text-area with CodeMirror's highlight syntax, plugins and options.
 
+## Installation and usage
+**Warning:** This repository is not on Bower not npm (yet). The commands below will not work (for now).
 
-## Dependencies
+#### Install with npm:
+`npm i --save polymer-code-mirror`
+#### Install with Bower
+`bower install --save polymer-code-mirror`
 
-Element dependencies are managed via [Bower](http://bower.io/). You can
-install that via:
+In your html file import the component and just drop the tag.
 
-    npm install -g bower
+```html
+...
+<head>
+    <link rel="import" href="bower_components/code-mirror.html"/>
+</head>
+<body>
+    <code-mirror mode="python" theme="solarized dark">
+    import turtle
 
-Then, go ahead and download the element's dependencies:
+    t = turtle.Turtle()
 
-    bower install
+    for c in ['red', 'green', 'yellow', 'blue', 'lime']:
+        t.color(c)
+        t.forward(72)
+        t.left(72)
+    </code-mirror>
+</body>
+```
 
+`<code-mirror>` expects a *mode* (the language). If none is passed, the syntax highlight will not work.
 
-## Playing With Your Element
+### ~~Hack~~ *Fix* to make `<code-mirror>` work properly
+You need this hack to refresh the editors on your site.
+```html
+<script>
+    var els = document.getElementsByClassName('CodeMirror');
+    for(var el in els){
+        el = parseInt(el, 10);
+        if(!isNaN(el)) {
+            els[el].CodeMirror.refresh();
+        }
+    }
+</script>
+```
+## Next features
+* [ ] Add all modes and plugins from CodeMirror
+* [ ] Fix hack above
 
-If you wish to work on your element in isolation, we recommend that you use
-[Polyserve](https://github.com/PolymerLabs/polyserve) to keep your element's
-bower dependencies in line. You can install it via:
-
-    npm install -g polyserve
-
-And you can run it via:
-
-    polyserve
-
-Once running, you can preview your element at
-`http://localhost:8080/components/seed-element/`, where `seed-element` is the name of the directory containing it.
-
-
-## Testing Your Element
-
-Simply navigate to the `/test` directory of your element to run its tests. If
-you are using Polyserve: `http://localhost:8080/components/seed-element/test/`
-
-### web-component-tester
-
-The tests are compatible with [web-component-tester](https://github.com/Polymer/web-component-tester).
-Install it via:
-
-    npm install -g web-component-tester
-
-Then, you can run your tests on _all_ of your local browsers via:
-
-    wct
-
-#### WCT Tips
-
-`wct -l chrome` will only run tests in chrome.
-
-`wct -p` will keep the browsers alive after test runs (refresh to re-run).
-
-`wct test/some-file.html` will test only the files you specify.
+## Contributing
+Feel free to contribute by sendig a PR.
