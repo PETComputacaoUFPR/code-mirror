@@ -1,6 +1,6 @@
 {
   "name": "polymer-code-mirror",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "CodeMirror web component made with Polymer",
   "main": "code-mirror.html",
   "scripts": {
