@@ -16,7 +16,7 @@ In your html file import the component and just drop the tag.
 ```html
 ...
 <head>
-    <link rel="import" href="bower_components/code-mirror.html"/>
+    <link rel="import" href="bower_components/polymer-code-mirror/code-mirror.html"/>
 </head>
 <body>
     <code-mirror mode="python" theme="solarized dark">
