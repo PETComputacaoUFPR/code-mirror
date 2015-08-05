@@ -19,5 +19,12 @@
   "contributors":[
       "Vytor Calixto <vytorcalixto@gmail.com> (https://gihtub.com/VytorCalixto)"
   ],
+  "bugs": {
+    "url": "https://github.com/PETComputacaoUFPR/code-mirror/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PETComputacaoUFPR/code-mirror"
+  },
   "license": "MIT"
 }
